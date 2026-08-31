@@ -27,15 +27,6 @@ Partial Class frmBlocNotas
         Label1 = New Label()
         Label2 = New Label()
         mnuPrincipal = New MenuStrip()
-        tsbNuevo = New ToolStrip()
-        rtbDocumento = New RichTextBox()
-        cmsTexto = New ContextMenuStrip(components)
-        stsInferior = New StatusStrip()
-        dlgAbrir = New OpenFileDialog()
-        dlgGuardar = New SaveFileDialog()
-        dlgFuente = New FontDialog()
-        dlgColor = New ColorDialog()
-        tmrReloj = New Timer(components)
         mnuNuevo = New ToolStripMenuItem()
         mnuAbrir = New ToolStripMenuItem()
         mnuGuardar = New ToolStripMenuItem()
@@ -46,6 +37,7 @@ Partial Class frmBlocNotas
         mnuPegar = New ToolStripMenuItem()
         mnuFuente = New ToolStripMenuItem()
         mnuAjusteLinea = New ToolStripMenuItem()
+        tsbNuevo = New ToolStrip()
         tsbAbrir = New ToolStripButton()
         tsnGuardar = New ToolStripButton()
         tsbNegrita = New ToolStripButton()
@@ -53,10 +45,18 @@ Partial Class frmBlocNotas
         tsbSubrayado = New ToolStripButton()
         tscbFuente = New ToolStripComboBox()
         tscbTamano = New ToolStripComboBox()
+        rtbDocumento = New RichTextBox()
+        cmsTexto = New ContextMenuStrip(components)
+        stsInferior = New StatusStrip()
         ToolStripStatusLabel1 = New ToolStripStatusLabel()
         ToolStripStatusLabel2 = New ToolStripStatusLabel()
         ToolStripStatusLabel3 = New ToolStripStatusLabel()
         ToolStripStatusLabel4 = New ToolStripStatusLabel()
+        dlgAbrir = New OpenFileDialog()
+        dlgGuardar = New SaveFileDialog()
+        dlgFuente = New FontDialog()
+        dlgColor = New ColorDialog()
+        tmrReloj = New Timer(components)
         mnuPrincipal.SuspendLayout()
         tsbNuevo.SuspendLayout()
         stsInferior.SuspendLayout()
@@ -86,63 +86,6 @@ Partial Class frmBlocNotas
         mnuPrincipal.Size = New Size(800, 24)
         mnuPrincipal.TabIndex = 2
         mnuPrincipal.Text = "MenuStrip1"
-        ' 
-        ' tsbNuevo
-        ' 
-        tsbNuevo.GripStyle = ToolStripGripStyle.Hidden
-        tsbNuevo.Items.AddRange(New ToolStripItem() {tsbAbrir, tsnGuardar, tsbNegrita, tsbCursiva, tsbSubrayado, tscbFuente, tscbTamano})
-        tsbNuevo.Location = New Point(0, 24)
-        tsbNuevo.Name = "tsbNuevo"
-        tsbNuevo.Size = New Size(800, 25)
-        tsbNuevo.TabIndex = 3
-        tsbNuevo.Text = "ToolStrip1"
-        ' 
-        ' rtbDocumento
-        ' 
-        rtbDocumento.ContextMenuStrip = cmsTexto
-        rtbDocumento.Dock = DockStyle.Fill
-        rtbDocumento.Font = New Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        rtbDocumento.Location = New Point(0, 49)
-        rtbDocumento.Name = "rtbDocumento"
-        rtbDocumento.Size = New Size(800, 401)
-        rtbDocumento.TabIndex = 4
-        rtbDocumento.Text = ""
-        ' 
-        ' cmsTexto
-        ' 
-        cmsTexto.Name = "cmsTexto"
-        cmsTexto.Size = New Size(61, 4)
-        ' 
-        ' stsInferior
-        ' 
-        stsInferior.Items.AddRange(New ToolStripItem() {ToolStripStatusLabel1, ToolStripStatusLabel2, ToolStripStatusLabel3, ToolStripStatusLabel4})
-        stsInferior.Location = New Point(0, 428)
-        stsInferior.Name = "stsInferior"
-        stsInferior.Size = New Size(800, 22)
-        stsInferior.TabIndex = 6
-        stsInferior.Text = "StatusStrip1"
-        ' 
-        ' dlgAbrir
-        ' 
-        dlgAbrir.FileName = "OpenFileDialog1"
-        dlgAbrir.Filter = "Archivos de texto (*.txt)|*.txt|Todos (*.*)|*.*"
-        ' 
-        ' dlgGuardar
-        ' 
-        dlgGuardar.DefaultExt = "txt"
-        ' 
-        ' dlgFuente
-        ' 
-        dlgFuente.ShowColor = True
-        ' 
-        ' dlgColor
-        ' 
-        dlgColor.FullOpen = True
-        ' 
-        ' tmrReloj
-        ' 
-        tmrReloj.Enabled = True
-        tmrReloj.Interval = 1000
         ' 
         ' mnuNuevo
         ' 
@@ -212,6 +155,16 @@ Partial Class frmBlocNotas
         mnuAjusteLinea.Size = New Size(96, 20)
         mnuAjusteLinea.Text = "Ajuste de línea"
         ' 
+        ' tsbNuevo
+        ' 
+        tsbNuevo.GripStyle = ToolStripGripStyle.Hidden
+        tsbNuevo.Items.AddRange(New ToolStripItem() {tsbAbrir, tsnGuardar, tsbNegrita, tsbCursiva, tsbSubrayado, tscbFuente, tscbTamano})
+        tsbNuevo.Location = New Point(0, 24)
+        tsbNuevo.Name = "tsbNuevo"
+        tsbNuevo.Size = New Size(800, 25)
+        tsbNuevo.TabIndex = 3
+        tsbNuevo.Text = "ToolStrip1"
+        ' 
         ' tsbAbrir
         ' 
         tsbAbrir.DisplayStyle = ToolStripItemDisplayStyle.Image
@@ -270,10 +223,35 @@ Partial Class frmBlocNotas
         tscbTamano.Name = "tscbTamano"
         tscbTamano.Size = New Size(121, 25)
         ' 
+        ' rtbDocumento
+        ' 
+        rtbDocumento.ContextMenuStrip = cmsTexto
+        rtbDocumento.Dock = DockStyle.Fill
+        rtbDocumento.Font = New Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        rtbDocumento.Location = New Point(0, 49)
+        rtbDocumento.Name = "rtbDocumento"
+        rtbDocumento.Size = New Size(800, 401)
+        rtbDocumento.TabIndex = 4
+        rtbDocumento.Text = ""
+        ' 
+        ' cmsTexto
+        ' 
+        cmsTexto.Name = "cmsTexto"
+        cmsTexto.Size = New Size(61, 4)
+        ' 
+        ' stsInferior
+        ' 
+        stsInferior.Items.AddRange(New ToolStripItem() {ToolStripStatusLabel1, ToolStripStatusLabel2, ToolStripStatusLabel3, ToolStripStatusLabel4})
+        stsInferior.Location = New Point(0, 428)
+        stsInferior.Name = "stsInferior"
+        stsInferior.Size = New Size(800, 22)
+        stsInferior.TabIndex = 6
+        stsInferior.Text = "StatusStrip1"
+        ' 
         ' ToolStripStatusLabel1
         ' 
         ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        ToolStripStatusLabel1.Size = New Size(565, 17)
+        ToolStripStatusLabel1.Size = New Size(534, 17)
         ToolStripStatusLabel1.Spring = True
         ToolStripStatusLabel1.Text = "stsEstado"
         ' 
@@ -294,6 +272,28 @@ Partial Class frmBlocNotas
         ToolStripStatusLabel4.Name = "ToolStripStatusLabel4"
         ToolStripStatusLabel4.Size = New Size(78, 17)
         ToolStripStatusLabel4.Text = "stsFechaHora"
+        ' 
+        ' dlgAbrir
+        ' 
+        dlgAbrir.FileName = "OpenFileDialog1"
+        dlgAbrir.Filter = "Archivos de texto (*.txt)|*.txt|Todos (*.*)|*.*"
+        ' 
+        ' dlgGuardar
+        ' 
+        dlgGuardar.DefaultExt = "txt"
+        ' 
+        ' dlgFuente
+        ' 
+        dlgFuente.ShowColor = True
+        ' 
+        ' dlgColor
+        ' 
+        dlgColor.FullOpen = True
+        ' 
+        ' tmrReloj
+        ' 
+        tmrReloj.Enabled = True
+        tmrReloj.Interval = 1000
         ' 
         ' frmBlocNotas
         ' 
