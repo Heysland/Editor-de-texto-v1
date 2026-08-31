@@ -5,7 +5,6 @@ Public Class frmBlocNotas
 
     Private rutaActual As String = String.Empty
     Private documentoModificado As Boolean = False
-    Private aplicandoFormato As Boolean = False
 
     Private Sub ArchivoToolStripMenuItem_Click(sender As Object, e As EventArgs)
 
@@ -32,11 +31,8 @@ Public Class frmBlocNotas
     End Sub
 
     Private Sub rtbDocumento_TextChanged(sender As Object, e As EventArgs) Handles rtbDocumento.TextChanged
-        If Not rtbDocumento.Focused Then Exit Sub
-
         documentoModificado = True
         ActualizarBarraEstado()
-
     End Sub
 
     Private Sub rtbDocumento_SelectionChanged(sender As Object, e As EventArgs) Handles rtbDocumento.SelectionChanged
@@ -131,16 +127,7 @@ Public Class frmBlocNotas
         Else
             nuevoEstilo = fuenteActual.Style Or estilo
         End If
-
-        aplicandoFormato = True
-
-        rtbDocumento.SelectionFont = New Font(
-        fuenteActual.FontFamily,
-        fuenteActual.Size,
-        nuevoEstilo
-    )
-        aplicandoFormato = False
-
+        rtbDocumento.SelectionFont = New Font(fuenteActual, nuevoEstilo)
     End Sub
 
     Private Sub tmrReloj_Tick(sender As Object, e As EventArgs) Handles tmrReloj.Tick
