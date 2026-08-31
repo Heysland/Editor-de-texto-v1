@@ -5,6 +5,7 @@ Public Class frmBlocNotas
 
     Private rutaActual As String = String.Empty
     Private documentoModificado As Boolean = False
+    Private aplicandoFormato As Boolean = False
 
     Private Sub ArchivoToolStripMenuItem_Click(sender As Object, e As EventArgs)
 
