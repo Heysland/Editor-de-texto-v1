@@ -131,7 +131,16 @@ Public Class frmBlocNotas
         Else
             nuevoEstilo = fuenteActual.Style Or estilo
         End If
-        rtbDocumento.SelectionFont = New Font(fuenteActual, nuevoEstilo)
+
+        aplicandoFormato = True
+
+        rtbDocumento.SelectionFont = New Font(
+        fuenteActual.FontFamily,
+        fuenteActual.Size,
+        nuevoEstilo
+    )
+        aplicandoFormato = False
+
     End Sub
 
     Private Sub tmrReloj_Tick(sender As Object, e As EventArgs) Handles tmrReloj.Tick
