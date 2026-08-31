@@ -31,8 +31,11 @@ Public Class frmBlocNotas
     End Sub
 
     Private Sub rtbDocumento_TextChanged(sender As Object, e As EventArgs) Handles rtbDocumento.TextChanged
+        If Not rtbDocumento.Focused Then Exit Sub
+
         documentoModificado = True
         ActualizarBarraEstado()
+
     End Sub
 
     Private Sub rtbDocumento_SelectionChanged(sender As Object, e As EventArgs) Handles rtbDocumento.SelectionChanged
