@@ -1,9 +1,18 @@
 ﻿Imports System.IO
 Imports System.Drawing
+
 Public Class frmBlocNotas
 
     Private rutaActual As String = String.Empty
     Private documentoModificado As Boolean = False
+
+    Private Sub ArchivoToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub mnuPrincipal_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles mnuPrincipal.ItemClicked
+
+    End Sub
 
     Private Sub frmBlocNotas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Configuración inicial del RichTextBox
@@ -173,11 +182,4 @@ Public Class frmBlocNotas
         stsEstado.Text = "Guardado correctamente"
     End Sub
 
-    Private Sub ToolStripStatusLabel4_Click(sender As Object, e As EventArgs) Handles stsFechaHora.Click
-
-
-    End Sub
-
 End Class
-
-
