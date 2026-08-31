@@ -73,7 +73,7 @@ Partial Class frmBlocNotas
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(265, 61)
+        Label2.Location = New Point(311, 67)
         Label2.Name = "Label2"
         Label2.Size = New Size(0, 15)
         Label2.TabIndex = 1
