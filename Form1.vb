@@ -173,7 +173,7 @@ Public Class frmBlocNotas
         stsEstado.Text = "Guardado correctamente"
     End Sub
 
-    Private Sub ToolStripStatusLabel4_Click(sender As Object, e As EventArgs) Handles ToolStripStatusLabel4.Click
+    Private Sub ToolStripStatusLabel4_Click(sender As Object, e As EventArgs) Handles stsFechaHora.Click
 
 
     End Sub

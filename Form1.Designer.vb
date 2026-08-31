@@ -48,10 +48,10 @@ Partial Class frmBlocNotas
         rtbDocumento = New RichTextBox()
         cmsTexto = New ContextMenuStrip(components)
         stsInferior = New StatusStrip()
-        ToolStripStatusLabel1 = New ToolStripStatusLabel()
-        ToolStripStatusLabel2 = New ToolStripStatusLabel()
-        ToolStripStatusLabel3 = New ToolStripStatusLabel()
-        ToolStripStatusLabel4 = New ToolStripStatusLabel()
+        stsEstado = New ToolStripStatusLabel()
+        stsPosicion = New ToolStripStatusLabel()
+        stsCaracteres = New ToolStripStatusLabel()
+        stsFechaHora = New ToolStripStatusLabel()
         dlgAbrir = New OpenFileDialog()
         dlgGuardar = New SaveFileDialog()
         dlgFuente = New FontDialog()
@@ -99,14 +99,14 @@ Partial Class frmBlocNotas
         mnuAbrir.Name = "mnuAbrir"
         mnuAbrir.ShortcutKeys = Keys.Control Or Keys.O
         mnuAbrir.Size = New Size(54, 20)
-        mnuAbrir.Text = vbTab & "&Abrir..."
+        mnuAbrir.Text = vbTab + "&Abrir..."
         ' 
         ' mnuGuardar
         ' 
         mnuGuardar.Name = "mnuGuardar"
         mnuGuardar.ShortcutKeys = Keys.Control Or Keys.S
         mnuGuardar.Size = New Size(61, 20)
-        mnuGuardar.Text = vbTab & "&Guardar"
+        mnuGuardar.Text = vbTab + "&Guardar"
         ' 
         ' mnuGuardarComo
         ' 
@@ -227,7 +227,7 @@ Partial Class frmBlocNotas
         ' 
         rtbDocumento.ContextMenuStrip = cmsTexto
         rtbDocumento.Dock = DockStyle.Fill
-        rtbDocumento.Font = New Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        rtbDocumento.Font = New Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0)
         rtbDocumento.Location = New Point(0, 49)
         rtbDocumento.Name = "rtbDocumento"
         rtbDocumento.Size = New Size(800, 401)
@@ -241,37 +241,37 @@ Partial Class frmBlocNotas
         ' 
         ' stsInferior
         ' 
-        stsInferior.Items.AddRange(New ToolStripItem() {ToolStripStatusLabel1, ToolStripStatusLabel2, ToolStripStatusLabel3, ToolStripStatusLabel4})
+        stsInferior.Items.AddRange(New ToolStripItem() {stsEstado, stsPosicion, stsCaracteres, stsFechaHora})
         stsInferior.Location = New Point(0, 428)
         stsInferior.Name = "stsInferior"
         stsInferior.Size = New Size(800, 22)
         stsInferior.TabIndex = 6
         stsInferior.Text = "StatusStrip1"
         ' 
-        ' ToolStripStatusLabel1
+        ' stsEstado
         ' 
-        ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        ToolStripStatusLabel1.Size = New Size(534, 17)
-        ToolStripStatusLabel1.Spring = True
-        ToolStripStatusLabel1.Text = "stsEstado"
+        stsEstado.Name = "stsEstado"
+        stsEstado.Size = New Size(534, 17)
+        stsEstado.Spring = True
+        stsEstado.Text = "stsEstado"
         ' 
-        ' ToolStripStatusLabel2
+        ' stsPosicion
         ' 
-        ToolStripStatusLabel2.Name = "ToolStripStatusLabel2"
-        ToolStripStatusLabel2.Size = New Size(66, 17)
-        ToolStripStatusLabel2.Text = "stsPosicion"
+        stsPosicion.Name = "stsPosicion"
+        stsPosicion.Size = New Size(66, 17)
+        stsPosicion.Text = "stsPosicion"
         ' 
-        ' ToolStripStatusLabel3
+        ' stsCaracteres
         ' 
-        ToolStripStatusLabel3.Name = "ToolStripStatusLabel3"
-        ToolStripStatusLabel3.Size = New Size(76, 17)
-        ToolStripStatusLabel3.Text = "stsCaracteres"
+        stsCaracteres.Name = "stsCaracteres"
+        stsCaracteres.Size = New Size(76, 17)
+        stsCaracteres.Text = "stsCaracteres"
         ' 
-        ' ToolStripStatusLabel4
+        ' stsFechaHora
         ' 
-        ToolStripStatusLabel4.Name = "ToolStripStatusLabel4"
-        ToolStripStatusLabel4.Size = New Size(78, 17)
-        ToolStripStatusLabel4.Text = "stsFechaHora"
+        stsFechaHora.Name = "stsFechaHora"
+        stsFechaHora.Size = New Size(78, 17)
+        stsFechaHora.Text = "stsFechaHora"
         ' 
         ' dlgAbrir
         ' 
@@ -297,7 +297,7 @@ Partial Class frmBlocNotas
         ' 
         ' frmBlocNotas
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
         Controls.Add(stsInferior)
@@ -350,9 +350,9 @@ Partial Class frmBlocNotas
     Friend WithEvents tsbSubrayado As ToolStripButton
     Friend WithEvents tscbFuente As ToolStripComboBox
     Friend WithEvents tscbTamano As ToolStripComboBox
-    Friend WithEvents ToolStripStatusLabel1 As ToolStripStatusLabel
-    Friend WithEvents ToolStripStatusLabel2 As ToolStripStatusLabel
-    Friend WithEvents ToolStripStatusLabel3 As ToolStripStatusLabel
-    Friend WithEvents ToolStripStatusLabel4 As ToolStripStatusLabel
+    Friend WithEvents stsEstado As ToolStripStatusLabel
+    Friend WithEvents stsPosicion As ToolStripStatusLabel
+    Friend WithEvents stsCaracteres As ToolStripStatusLabel
+    Friend WithEvents stsFechaHora As ToolStripStatusLabel
 
 End Class
