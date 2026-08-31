@@ -35,6 +35,17 @@ Partial Class frmBlocNotas
         dlgFuente = New FontDialog()
         dlgColor = New ColorDialog()
         tmrReloj = New Timer(components)
+        mnuNuevo = New ToolStripMenuItem()
+        mnuAbrir = New ToolStripMenuItem()
+        mnuGuardar = New ToolStripMenuItem()
+        mnuGuardarComo = New ToolStripMenuItem()
+        mnuSalir = New ToolStripMenuItem()
+        mnuCortar = New ToolStripMenuItem()
+        mnuCopiar = New ToolStripMenuItem()
+        mnuPegar = New ToolStripMenuItem()
+        mnuFuente = New ToolStripMenuItem()
+        mnuAjusteLinea = New ToolStripMenuItem()
+        mnuPrincipal.SuspendLayout()
         SuspendLayout()
         ' 
         ' Label1
@@ -55,6 +66,7 @@ Partial Class frmBlocNotas
         ' 
         ' mnuPrincipal
         ' 
+        mnuPrincipal.Items.AddRange(New ToolStripItem() {mnuNuevo, mnuAbrir, mnuGuardar, mnuGuardarComo, mnuSalir, mnuCortar, mnuCopiar, mnuPegar, mnuFuente, mnuAjusteLinea})
         mnuPrincipal.Location = New Point(0, 0)
         mnuPrincipal.Name = "mnuPrincipal"
         mnuPrincipal.Size = New Size(800, 24)
@@ -116,6 +128,74 @@ Partial Class frmBlocNotas
         tmrReloj.Enabled = True
         tmrReloj.Interval = 1000
         ' 
+        ' mnuNuevo
+        ' 
+        mnuNuevo.Name = "mnuNuevo"
+        mnuNuevo.ShortcutKeys = Keys.Control Or Keys.N
+        mnuNuevo.Size = New Size(54, 20)
+        mnuNuevo.Text = "&Nuevo"
+        ' 
+        ' mnuAbrir
+        ' 
+        mnuAbrir.Name = "mnuAbrir"
+        mnuAbrir.ShortcutKeys = Keys.Control Or Keys.O
+        mnuAbrir.Size = New Size(54, 20)
+        mnuAbrir.Text = vbTab & "&Abrir..."
+        ' 
+        ' mnuGuardar
+        ' 
+        mnuGuardar.Name = "mnuGuardar"
+        mnuGuardar.ShortcutKeys = Keys.Control Or Keys.S
+        mnuGuardar.Size = New Size(61, 20)
+        mnuGuardar.Text = vbTab & "&Guardar"
+        ' 
+        ' mnuGuardarComo
+        ' 
+        mnuGuardarComo.Name = "mnuGuardarComo"
+        mnuGuardarComo.Size = New Size(104, 20)
+        mnuGuardarComo.Text = "Guardar &como..."
+        ' 
+        ' mnuSalir
+        ' 
+        mnuSalir.Name = "mnuSalir"
+        mnuSalir.ShortcutKeys = Keys.Alt Or Keys.F4
+        mnuSalir.Size = New Size(41, 20)
+        mnuSalir.Text = "&Salir"
+        ' 
+        ' mnuCortar
+        ' 
+        mnuCortar.Name = "mnuCortar"
+        mnuCortar.ShortcutKeys = Keys.Control Or Keys.X
+        mnuCortar.Size = New Size(52, 20)
+        mnuCortar.Text = "Cortar"
+        ' 
+        ' mnuCopiar
+        ' 
+        mnuCopiar.Name = "mnuCopiar"
+        mnuCopiar.ShortcutKeys = Keys.Control Or Keys.C
+        mnuCopiar.Size = New Size(54, 20)
+        mnuCopiar.Text = "Copiar"
+        ' 
+        ' mnuPegar
+        ' 
+        mnuPegar.Name = "mnuPegar"
+        mnuPegar.ShortcutKeys = Keys.Control Or Keys.V
+        mnuPegar.Size = New Size(49, 20)
+        mnuPegar.Text = "Pegar"
+        ' 
+        ' mnuFuente
+        ' 
+        mnuFuente.Name = "mnuFuente"
+        mnuFuente.Size = New Size(64, 20)
+        mnuFuente.Text = "&Fuente..."
+        ' 
+        ' mnuAjusteLinea
+        ' 
+        mnuAjusteLinea.CheckOnClick = True
+        mnuAjusteLinea.Name = "mnuAjusteLinea"
+        mnuAjusteLinea.Size = New Size(96, 20)
+        mnuAjusteLinea.Text = "Ajuste de línea"
+        ' 
         ' frmBlocNotas
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
@@ -132,6 +212,8 @@ Partial Class frmBlocNotas
         Name = "frmBlocNotas"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Bloc de Notas VB.NET"
+        mnuPrincipal.ResumeLayout(False)
+        mnuPrincipal.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -148,5 +230,15 @@ Partial Class frmBlocNotas
     Friend WithEvents dlgFuente As FontDialog
     Friend WithEvents dlgColor As ColorDialog
     Friend WithEvents tmrReloj As Timer
+    Friend WithEvents mnuNuevo As ToolStripMenuItem
+    Friend WithEvents mnuAbrir As ToolStripMenuItem
+    Friend WithEvents mnuGuardar As ToolStripMenuItem
+    Friend WithEvents mnuGuardarComo As ToolStripMenuItem
+    Friend WithEvents mnuSalir As ToolStripMenuItem
+    Friend WithEvents mnuCortar As ToolStripMenuItem
+    Friend WithEvents mnuCopiar As ToolStripMenuItem
+    Friend WithEvents mnuPegar As ToolStripMenuItem
+    Friend WithEvents mnuFuente As ToolStripMenuItem
+    Friend WithEvents mnuAjusteLinea As ToolStripMenuItem
 
 End Class
