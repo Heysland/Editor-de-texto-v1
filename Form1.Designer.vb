@@ -39,7 +39,7 @@ Partial Class frmBlocNotas
         mnuAjusteLinea = New ToolStripMenuItem()
         tsbNuevo = New ToolStrip()
         tsbAbrir = New ToolStripButton()
-        tsnGuardar = New ToolStripButton()
+        tsbGuardar = New ToolStripButton()
         tsbNegrita = New ToolStripButton()
         tsbCursiva = New ToolStripButton()
         tsbSubrayado = New ToolStripButton()
@@ -99,14 +99,14 @@ Partial Class frmBlocNotas
         mnuAbrir.Name = "mnuAbrir"
         mnuAbrir.ShortcutKeys = Keys.Control Or Keys.O
         mnuAbrir.Size = New Size(54, 20)
-        mnuAbrir.Text = vbTab + "&Abrir..."
+        mnuAbrir.Text = vbTab & "&Abrir..."
         ' 
         ' mnuGuardar
         ' 
         mnuGuardar.Name = "mnuGuardar"
         mnuGuardar.ShortcutKeys = Keys.Control Or Keys.S
         mnuGuardar.Size = New Size(61, 20)
-        mnuGuardar.Text = vbTab + "&Guardar"
+        mnuGuardar.Text = vbTab & "&Guardar"
         ' 
         ' mnuGuardarComo
         ' 
@@ -158,7 +158,7 @@ Partial Class frmBlocNotas
         ' tsbNuevo
         ' 
         tsbNuevo.GripStyle = ToolStripGripStyle.Hidden
-        tsbNuevo.Items.AddRange(New ToolStripItem() {tsbAbrir, tsnGuardar, tsbNegrita, tsbCursiva, tsbSubrayado, tscbFuente, tscbTamano})
+        tsbNuevo.Items.AddRange(New ToolStripItem() {tsbAbrir, tsbGuardar, tsbNegrita, tsbCursiva, tsbSubrayado, tscbFuente, tscbTamano})
         tsbNuevo.Location = New Point(0, 24)
         tsbNuevo.Name = "tsbNuevo"
         tsbNuevo.Size = New Size(800, 25)
@@ -174,14 +174,14 @@ Partial Class frmBlocNotas
         tsbAbrir.Size = New Size(23, 22)
         tsbAbrir.Text = "ToolStripButton1"
         ' 
-        ' tsnGuardar
+        ' tsbGuardar
         ' 
-        tsnGuardar.DisplayStyle = ToolStripItemDisplayStyle.Image
-        tsnGuardar.Image = CType(resources.GetObject("tsnGuardar.Image"), Image)
-        tsnGuardar.ImageTransparentColor = Color.Magenta
-        tsnGuardar.Name = "tsnGuardar"
-        tsnGuardar.Size = New Size(23, 22)
-        tsnGuardar.Text = "ToolStripButton1"
+        tsbGuardar.DisplayStyle = ToolStripItemDisplayStyle.Image
+        tsbGuardar.Image = CType(resources.GetObject("tsbGuardar.Image"), Image)
+        tsbGuardar.ImageTransparentColor = Color.Magenta
+        tsbGuardar.Name = "tsbGuardar"
+        tsbGuardar.Size = New Size(23, 22)
+        tsbGuardar.Text = "ToolStripButton1"
         ' 
         ' tsbNegrita
         ' 
@@ -227,7 +227,7 @@ Partial Class frmBlocNotas
         ' 
         rtbDocumento.ContextMenuStrip = cmsTexto
         rtbDocumento.Dock = DockStyle.Fill
-        rtbDocumento.Font = New Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0)
+        rtbDocumento.Font = New Font("Consolas", 11.25F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
         rtbDocumento.Location = New Point(0, 49)
         rtbDocumento.Name = "rtbDocumento"
         rtbDocumento.Size = New Size(800, 401)
@@ -251,7 +251,7 @@ Partial Class frmBlocNotas
         ' stsEstado
         ' 
         stsEstado.Name = "stsEstado"
-        stsEstado.Size = New Size(534, 17)
+        stsEstado.Size = New Size(565, 17)
         stsEstado.Spring = True
         stsEstado.Text = "stsEstado"
         ' 
@@ -297,7 +297,7 @@ Partial Class frmBlocNotas
         ' 
         ' frmBlocNotas
         ' 
-        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
         Controls.Add(stsInferior)
@@ -344,7 +344,7 @@ Partial Class frmBlocNotas
     Friend WithEvents mnuFuente As ToolStripMenuItem
     Friend WithEvents mnuAjusteLinea As ToolStripMenuItem
     Friend WithEvents tsbAbrir As ToolStripButton
-    Friend WithEvents tsnGuardar As ToolStripButton
+    Friend WithEvents tsbGuardar As ToolStripButton
     Friend WithEvents tsbNegrita As ToolStripButton
     Friend WithEvents tsbCursiva As ToolStripButton
     Friend WithEvents tsbSubrayado As ToolStripButton
