@@ -39,44 +39,47 @@ Public Class frmBlocNotas
         ActualizarBarraEstado()
     End Sub
 
-    Private Sub mnuNuevo_Click(sender As Object, e As EventArgs)
+    Private Sub mnuNuevo_Click(sender As Object, e As EventArgs) Handles mnuNuevo.Click
         NuevoDocumento()
     End Sub
 
-    Private Sub mnuAbrir_Click(sender As Object, e As EventArgs)
+    Private Sub mnuAbrir_Click(sender As Object, e As EventArgs) Handles mnuAbrir.Click
         AbrirDocumento()
     End Sub
 
-    Private Sub mnuGuardar_Click(sender As Object, e As EventArgs)
+    Private Sub mnuGuardar_Click(sender As Object, e As EventArgs) Handles mnuGuardar.Click
         GuardarDocumento(False)
     End Sub
 
-    Private Sub mnuGuardarComo_Click(sender As Object, e As EventArgs)
+    Private Sub mnuGuardarComo_Click(sender As Object, e As EventArgs) Handles mnuGuardarComo.Click
         GuardarDocumento(True)
     End Sub
 
-    Private Sub mnuSalir_Click(sender As Object, e As EventArgs)
-        Close()
+    Private Sub mnuSalir_Click(sender As Object, e As EventArgs) Handles mnuSalir.Click
+        Me.Close()
     End Sub
 
-    Private Sub mnuCortar_Click(sender As Object, e As EventArgs)
+    Private Sub mnuCortar_Click(sender As Object, e As EventArgs) Handles mnuCortar.Click
         rtbDocumento.Cut()
     End Sub
 
-    Private Sub mnuCopiar_Click(sender As Object, e As EventArgs)
+    Private Sub mnuCopiar_Click(sender As Object, e As EventArgs) Handles mnuCopiar.Click
         rtbDocumento.Copy()
     End Sub
 
-    Private Sub mnuPegar_Click(sender As Object, e As EventArgs)
+    Private Sub mnuPegar_Click(sender As Object, e As EventArgs) Handles mnuPegar.Click
         rtbDocumento.Paste()
     End Sub
 
-    Private Sub mnuFuente_Click(sender As Object, e As EventArgs)
+
+    Private Sub mnuFuente_Click(sender As Object, e As EventArgs) Handles mnuFuente.Click
         dlgFuente.Font = rtbDocumento.SelectionFont
-        If dlgFuente.ShowDialog = DialogResult.OK Then
+        If dlgFuente.ShowDialog() = DialogResult.OK Then
             rtbDocumento.SelectionFont = dlgFuente.Font
         End If
+
     End Sub
+
 
     Private Sub mnuAjusteLinea_Click(sender As Object, e As EventArgs)
         rtbDocumento.WordWrap = mnuAjusteLinea.Checked
@@ -195,4 +198,72 @@ Public Class frmBlocNotas
     Private Sub ArchivoToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles ArchivoToolStripMenuItem.Click
 
     End Sub
+
+    Private Sub mnuSalir_Click_1(sender As Object, e As EventArgs) Handles mnuSalir.Click
+
+    End Sub
+
+    Private Sub mnuGuardarComo_Click_1(sender As Object, e As EventArgs) Handles mnuGuardarComo.Click
+
+    End Sub
+
+    Private Sub mnuDeshacer_Click(sender As Object, e As EventArgs) Handles mnuDeshacer.Click
+        If rtbDocumento.CanUndo Then rtbDocumento.Undo()
+    End Sub
+
+    Private Sub mnuRehacer_Click(sender As Object, e As EventArgs) Handles mnuRehacer.Click
+        If rtbDocumento.CanRedo Then rtbDocumento.Redo()
+    End Sub
+
+    Private Sub mnuSeleccionarTodo_Click(sender As Object, e As EventArgs) Handles mnuSeleccionarTodo.Click
+        rtbDocumento.SelectAll()
+    End Sub
+
+    Private Sub mnuBuscar_Click(sender As Object, e As EventArgs) Handles mnuBuscar.Click
+        Dim textoBuscar As String = InputBox("Ingrese el texto que desea buscar:", "Buscar")
+        If Not String.IsNullOrEmpty(textoBuscar) Then
+            Dim inicio As Integer = rtbDocumento.Find(textoBuscar)
+            If inicio <> -1 Then
+                rtbDocumento.Select(inicio, textoBuscar.Length)
+                rtbDocumento.Focus()
+            Else
+                MessageBox.Show("No se encontró el texto especificado.", "Buscar", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+        End If
+    End Sub
+
+    Private Sub mnuColorTexto_Click(sender As Object, e As EventArgs) Handles mnuColorTexto.Click
+        If dlgColor.ShowDialog() = DialogResult.OK Then
+            rtbDocumento.SelectionColor = dlgColor.Color
+        End If
+    End Sub
+
+    Private Sub mnuAcercaDe_Click(sender As Object, e As EventArgs) Handles AcercaDeToolStripMenuItem.Click
+        MessageBox.Show("Bloc de Notas" & vbCrLf & "UNI 2026 - Ingenieros de Sistemas" & vbCrLf & "Futuros campeones de Tenis De Mesa",
+                     "Acerca de", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+
+    Private Sub mnuContarPalabras_Click(sender As Object, e As EventArgs) Handles mnuContarPalabras.Click
+        Dim texto As String = rtbDocumento.Text.Trim()
+        Dim palabras As Integer = 0
+
+        If Not String.IsNullOrEmpty(texto) Then
+            Dim listaPalabras As String() = texto.Split(New Char() {" "c, ControlChars.Lf, ControlChars.Cr, ControlChars.Tab}, StringSplitOptions.RemoveEmptyEntries)
+            palabras = listaPalabras.Length
+        End If
+
+        MessageBox.Show($"El texto tiene {palabras} palabra(s).", "Contar Palabras", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+
+    Private Sub mnuContarCaracteres_Click(sender As Object, e As EventArgs) Handles mnuContarCaracteres.Click
+        Dim totalConEspacios As Integer = rtbDocumento.Text.Length
+        Dim totalSinEspacios As Integer = rtbDocumento.Text.Replace(" ", "").Replace(vbCr, "").Replace(vbLf, "").Length
+
+        Dim mensaje As String = $"Total de caracteres con espacios: {totalConEspacios}" & vbCrLf &
+                               $"Total de caracteres sin espacios: {totalSinEspacios}"
+
+        MessageBox.Show(mensaje, "Contar Caracteres", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+
+
 End Class

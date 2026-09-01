@@ -41,6 +41,7 @@ Partial Class frmBlocNotas
         mnuBuscar = New ToolStripMenuItem()
         mnuContarPalabras = New ToolStripMenuItem()
         mnuContarCaracteres = New ToolStripMenuItem()
+        mnuAjusteLinea = New ToolStripMenuItem()
         AyudaToolStripMenuItem = New ToolStripMenuItem()
         AcercaDeToolStripMenuItem = New ToolStripMenuItem()
         tlsBarraHerramientas = New ToolStrip()
@@ -64,7 +65,6 @@ Partial Class frmBlocNotas
         dlgFuente = New FontDialog()
         dlgColor = New ColorDialog()
         tmrReloj = New Timer(components)
-        mnuAjusteLinea = New ToolStripMenuItem()
         mnuPrincipal.SuspendLayout()
         tlsBarraHerramientas.SuspendLayout()
         stsInferior.SuspendLayout()
@@ -106,34 +106,34 @@ Partial Class frmBlocNotas
         ' 
         mnuNuevo.Name = "mnuNuevo"
         mnuNuevo.ShortcutKeys = Keys.Control Or Keys.N
-        mnuNuevo.Size = New Size(159, 22)
+        mnuNuevo.Size = New Size(180, 22)
         mnuNuevo.Text = "&Nuevo"
         ' 
         ' mnuAbrir
         ' 
         mnuAbrir.Name = "mnuAbrir"
         mnuAbrir.ShortcutKeys = Keys.Control Or Keys.O
-        mnuAbrir.Size = New Size(159, 22)
+        mnuAbrir.Size = New Size(180, 22)
         mnuAbrir.Text = "&Abrir"
         ' 
         ' mnuGuardar
         ' 
         mnuGuardar.Name = "mnuGuardar"
         mnuGuardar.ShortcutKeys = Keys.Control Or Keys.S
-        mnuGuardar.Size = New Size(159, 22)
+        mnuGuardar.Size = New Size(180, 22)
         mnuGuardar.Text = "&Guardar"
         ' 
         ' mnuGuardarComo
         ' 
         mnuGuardarComo.Name = "mnuGuardarComo"
-        mnuGuardarComo.Size = New Size(159, 22)
+        mnuGuardarComo.Size = New Size(180, 22)
         mnuGuardarComo.Text = "Guardar &como..."
         ' 
         ' mnuSalir
         ' 
         mnuSalir.Name = "mnuSalir"
         mnuSalir.ShortcutKeys = Keys.Alt Or Keys.F4
-        mnuSalir.Size = New Size(159, 22)
+        mnuSalir.Size = New Size(180, 22)
         mnuSalir.Text = "&Salir"
         ' 
         ' EdicionToolStripMenuItem
@@ -215,20 +215,27 @@ Partial Class frmBlocNotas
         ' 
         mnuBuscar.Name = "mnuBuscar"
         mnuBuscar.ShortcutKeys = Keys.Control Or Keys.B
-        mnuBuscar.Size = New Size(180, 22)
+        mnuBuscar.Size = New Size(166, 22)
         mnuBuscar.Text = "Buscar"
         ' 
         ' mnuContarPalabras
         ' 
         mnuContarPalabras.Name = "mnuContarPalabras"
-        mnuContarPalabras.Size = New Size(180, 22)
+        mnuContarPalabras.Size = New Size(166, 22)
         mnuContarPalabras.Text = "Contar Palabras"
         ' 
         ' mnuContarCaracteres
         ' 
         mnuContarCaracteres.Name = "mnuContarCaracteres"
-        mnuContarCaracteres.Size = New Size(180, 22)
+        mnuContarCaracteres.Size = New Size(166, 22)
         mnuContarCaracteres.Text = "Contar caracteres"
+        ' 
+        ' mnuAjusteLinea
+        ' 
+        mnuAjusteLinea.CheckOnClick = True
+        mnuAjusteLinea.Name = "mnuAjusteLinea"
+        mnuAjusteLinea.Size = New Size(166, 22)
+        mnuAjusteLinea.Text = "Ajuste Linea"
         ' 
         ' AyudaToolStripMenuItem
         ' 
@@ -383,13 +390,6 @@ Partial Class frmBlocNotas
         ' 
         tmrReloj.Enabled = True
         tmrReloj.Interval = 1000
-        ' 
-        ' mnuAjusteLinea
-        ' 
-        mnuAjusteLinea.CheckOnClick = True
-        mnuAjusteLinea.Name = "mnuAjusteLinea"
-        mnuAjusteLinea.Size = New Size(180, 22)
-        mnuAjusteLinea.Text = "Ajuste Linea"
         ' 
         ' frmBlocNotas
         ' 
