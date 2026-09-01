@@ -167,12 +167,11 @@ Partial Class frmBlocNotas
         ' 
         ' tsbAbrir
         ' 
-        tsbAbrir.DisplayStyle = ToolStripItemDisplayStyle.Image
         tsbAbrir.Image = CType(resources.GetObject("tsbAbrir.Image"), Image)
         tsbAbrir.ImageTransparentColor = Color.Magenta
         tsbAbrir.Name = "tsbAbrir"
-        tsbAbrir.Size = New Size(23, 22)
-        tsbAbrir.Text = "ToolStripButton1"
+        tsbAbrir.Size = New Size(53, 22)
+        tsbAbrir.Text = "Abrir"
         ' 
         ' tsbGuardar
         ' 
@@ -233,6 +232,7 @@ Partial Class frmBlocNotas
         rtbDocumento.Size = New Size(800, 401)
         rtbDocumento.TabIndex = 4
         rtbDocumento.Text = ""
+        rtbDocumento.ZoomFactor = 2F
         ' 
         ' cmsTexto
         ' 

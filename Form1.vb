@@ -23,8 +23,8 @@ Public Class frmBlocNotas
         ' Llenar combos del ToolStrip
         tscbFuente.Items.AddRange(New String() {"Segoe UI", "Consolas", "Arial", "Times New Roman"})
         tscbFuente.SelectedIndex = 1
-        tscbTamano.Items.AddRange(New String() {"8", "10", "11", "12", "14", "18", "24"})
-        tscbTamano.SelectedIndex = 2
+        tscbTamaño.Items.AddRange(New String() {"8", "10", "11", "12", "14", "18", "24"})
+        tscbTamaño.SelectedIndex = 2
 
         ActualizarBarraEstado()
         Me.Text = "Bloc de Notas VB.NET - [Nuevo documento]"
@@ -112,8 +112,8 @@ Public Class frmBlocNotas
         rtbDocumento.SelectionFont = New Font(tscbFuente.Text, tamano, rtbDocumento.SelectionFont.Style)
     End Sub
 
-    Private Sub tscbTamano_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tscbTamano.SelectedIndexChanged
-        Dim tam As Single = Convert.ToSingle(tscbTamano.Text)
+    Private Sub tscbTamano_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tscbTamaño.SelectedIndexChanged
+        Dim tam As Single = Convert.ToSingle(tscbTamaño.Text)
         rtbDocumento.SelectionFont = New Font(rtbDocumento.SelectionFont.FontFamily, tam, rtbDocumento.SelectionFont.Style)
     End Sub
 
