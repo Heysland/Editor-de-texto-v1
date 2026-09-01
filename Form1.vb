@@ -39,46 +39,46 @@ Public Class frmBlocNotas
         ActualizarBarraEstado()
     End Sub
 
-    Private Sub mnuNuevo_Click(sender As Object, e As EventArgs) Handles mnuNuevo.Click
+    Private Sub mnuNuevo_Click(sender As Object, e As EventArgs)
         NuevoDocumento()
     End Sub
 
-    Private Sub mnuAbrir_Click(sender As Object, e As EventArgs) Handles mnuAbrir.Click
+    Private Sub mnuAbrir_Click(sender As Object, e As EventArgs)
         AbrirDocumento()
     End Sub
 
-    Private Sub mnuGuardar_Click(sender As Object, e As EventArgs) Handles mnuGuardar.Click
+    Private Sub mnuGuardar_Click(sender As Object, e As EventArgs)
         GuardarDocumento(False)
     End Sub
 
-    Private Sub mnuGuardarComo_Click(sender As Object, e As EventArgs) Handles mnuGuardarComo.Click
+    Private Sub mnuGuardarComo_Click(sender As Object, e As EventArgs)
         GuardarDocumento(True)
     End Sub
 
-    Private Sub mnuSalir_Click(sender As Object, e As EventArgs) Handles mnuSalir.Click
-        Me.Close()
+    Private Sub mnuSalir_Click(sender As Object, e As EventArgs)
+        Close()
     End Sub
 
-    Private Sub mnuCortar_Click(sender As Object, e As EventArgs) Handles mnuCortar.Click
+    Private Sub mnuCortar_Click(sender As Object, e As EventArgs)
         rtbDocumento.Cut()
     End Sub
 
-    Private Sub mnuCopiar_Click(sender As Object, e As EventArgs) Handles mnuCopiar.Click
+    Private Sub mnuCopiar_Click(sender As Object, e As EventArgs)
         rtbDocumento.Copy()
     End Sub
 
-    Private Sub mnuPegar_Click(sender As Object, e As EventArgs) Handles mnuPegar.Click
+    Private Sub mnuPegar_Click(sender As Object, e As EventArgs)
         rtbDocumento.Paste()
     End Sub
 
-    Private Sub mnuFuente_Click(sender As Object, e As EventArgs) Handles mnuFuente.Click
+    Private Sub mnuFuente_Click(sender As Object, e As EventArgs)
         dlgFuente.Font = rtbDocumento.SelectionFont
-        If dlgFuente.ShowDialog() = DialogResult.OK Then
+        If dlgFuente.ShowDialog = DialogResult.OK Then
             rtbDocumento.SelectionFont = dlgFuente.Font
         End If
     End Sub
 
-    Private Sub mnuAjusteLinea_Click(sender As Object, e As EventArgs) Handles mnuAjusteLinea.Click
+    Private Sub mnuAjusteLinea_Click(sender As Object, e As EventArgs)
         rtbDocumento.WordWrap = mnuAjusteLinea.Checked
     End Sub
 
@@ -188,4 +188,11 @@ Public Class frmBlocNotas
         stsEstado.Text = "Guardado correctamente"
     End Sub
 
+    Private Sub mnuEdicion_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub ArchivoToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles ArchivoToolStripMenuItem.Click
+
+    End Sub
 End Class
