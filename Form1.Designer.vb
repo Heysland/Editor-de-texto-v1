@@ -2,7 +2,6 @@
 Partial Class frmBlocNotas
     Inherits System.Windows.Forms.Form
 
-    'Form overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(disposing As Boolean)
         Try
@@ -14,12 +13,8 @@ Partial Class frmBlocNotas
         End Try
     End Sub
 
-    'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
 
-    'NOTE: The following procedure is required by the Windows Form Designer
-    'It can be modified using the Windows Form Designer.
-    'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         components = New ComponentModel.Container()
@@ -37,7 +32,8 @@ Partial Class frmBlocNotas
         mnuPegar = New ToolStripMenuItem()
         mnuFuente = New ToolStripMenuItem()
         mnuAjusteLinea = New ToolStripMenuItem()
-        tsbNuevo = New ToolStrip()
+        tlsBarraHerramientas = New ToolStrip()
+        tsbNuevo = New ToolStripButton()
         tsbAbrir = New ToolStripButton()
         tsbGuardar = New ToolStripButton()
         tsbNegrita = New ToolStripButton()
@@ -58,7 +54,7 @@ Partial Class frmBlocNotas
         dlgColor = New ColorDialog()
         tmrReloj = New Timer(components)
         mnuPrincipal.SuspendLayout()
-        tsbNuevo.SuspendLayout()
+        tlsBarraHerramientas.SuspendLayout()
         stsInferior.SuspendLayout()
         SuspendLayout()
         ' 
@@ -155,62 +151,63 @@ Partial Class frmBlocNotas
         mnuAjusteLinea.Size = New Size(96, 20)
         mnuAjusteLinea.Text = "Ajuste de línea"
         ' 
+        ' tlsBarraHerramientas
+        ' 
+        tlsBarraHerramientas.GripStyle = ToolStripGripStyle.Hidden
+        tlsBarraHerramientas.Items.AddRange(New ToolStripItem() {tsbNuevo, tsbAbrir, tsbGuardar, tsbNegrita, tsbCursiva, tsbSubrayado, tscbFuente, tscbTamano})
+        tlsBarraHerramientas.Location = New Point(0, 24)
+        tlsBarraHerramientas.Name = "tlsBarraHerramientas"
+        tlsBarraHerramientas.Size = New Size(800, 25)
+        tlsBarraHerramientas.TabIndex = 3
+        tlsBarraHerramientas.Text = "ToolStrip1"
+        ' 
         ' tsbNuevo
         ' 
-        tsbNuevo.GripStyle = ToolStripGripStyle.Hidden
-        tsbNuevo.Items.AddRange(New ToolStripItem() {tsbAbrir, tsbGuardar, tsbNegrita, tsbCursiva, tsbSubrayado, tscbFuente, tscbTamano})
-        tsbNuevo.Location = New Point(0, 24)
+        tsbNuevo.DisplayStyle = ToolStripItemDisplayStyle.Text
         tsbNuevo.Name = "tsbNuevo"
-        tsbNuevo.Size = New Size(800, 25)
-        tsbNuevo.TabIndex = 3
-        tsbNuevo.Text = "ToolStrip1"
+        tsbNuevo.Size = New Size(46, 22)
+        tsbNuevo.Text = "Nuevo"
         ' 
         ' tsbAbrir
         ' 
-        tsbAbrir.Image = CType(resources.GetObject("tsbAbrir.Image"), Image)
-        tsbAbrir.ImageTransparentColor = Color.Magenta
+        tsbAbrir.DisplayStyle = ToolStripItemDisplayStyle.Text
         tsbAbrir.Name = "tsbAbrir"
-        tsbAbrir.Size = New Size(53, 22)
+        tsbAbrir.Size = New Size(37, 22)
         tsbAbrir.Text = "Abrir"
         ' 
         ' tsbGuardar
         ' 
-        tsbGuardar.DisplayStyle = ToolStripItemDisplayStyle.Image
-        tsbGuardar.Image = CType(resources.GetObject("tsbGuardar.Image"), Image)
-        tsbGuardar.ImageTransparentColor = Color.Magenta
+        tsbGuardar.DisplayStyle = ToolStripItemDisplayStyle.Text
         tsbGuardar.Name = "tsbGuardar"
-        tsbGuardar.Size = New Size(23, 22)
-        tsbGuardar.Text = "ToolStripButton1"
+        tsbGuardar.Size = New Size(53, 22)
+        tsbGuardar.Text = "Guardar"
         ' 
         ' tsbNegrita
         ' 
         tsbNegrita.CheckOnClick = True
-        tsbNegrita.DisplayStyle = ToolStripItemDisplayStyle.Image
-        tsbNegrita.Image = CType(resources.GetObject("tsbNegrita.Image"), Image)
-        tsbNegrita.ImageTransparentColor = Color.Magenta
+        tsbNegrita.DisplayStyle = ToolStripItemDisplayStyle.Text
+        tsbNegrita.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
         tsbNegrita.Name = "tsbNegrita"
         tsbNegrita.Size = New Size(23, 22)
-        tsbNegrita.Text = "ToolStripButton1"
+        tsbNegrita.Text = "N"
         ' 
         ' tsbCursiva
         ' 
         tsbCursiva.CheckOnClick = True
-        tsbCursiva.DisplayStyle = ToolStripItemDisplayStyle.Image
-        tsbCursiva.Image = CType(resources.GetObject("tsbCursiva.Image"), Image)
-        tsbCursiva.ImageTransparentColor = Color.Magenta
+        tsbCursiva.DisplayStyle = ToolStripItemDisplayStyle.Text
+        tsbCursiva.Font = New Font("Segoe UI", 9.0F, FontStyle.Italic)
         tsbCursiva.Name = "tsbCursiva"
         tsbCursiva.Size = New Size(23, 22)
-        tsbCursiva.Text = "ToolStripButton1"
+        tsbCursiva.Text = "K"
         ' 
         ' tsbSubrayado
         ' 
         tsbSubrayado.CheckOnClick = True
-        tsbSubrayado.DisplayStyle = ToolStripItemDisplayStyle.Image
-        tsbSubrayado.Image = CType(resources.GetObject("tsbSubrayado.Image"), Image)
-        tsbSubrayado.ImageTransparentColor = Color.Magenta
+        tsbSubrayado.DisplayStyle = ToolStripItemDisplayStyle.Text
+        tsbSubrayado.Font = New Font("Segoe UI", 9.0F, FontStyle.Underline)
         tsbSubrayado.Name = "tsbSubrayado"
         tsbSubrayado.Size = New Size(23, 22)
-        tsbSubrayado.Text = "ToolStripButton1"
+        tsbSubrayado.Text = "S"
         ' 
         ' tscbFuente
         ' 
@@ -220,7 +217,7 @@ Partial Class frmBlocNotas
         ' tscbTamano
         ' 
         tscbTamano.Name = "tscbTamano"
-        tscbTamano.Size = New Size(121, 25)
+        tscbTamano.Size = New Size(75, 25)
         ' 
         ' rtbDocumento
         ' 
@@ -232,7 +229,6 @@ Partial Class frmBlocNotas
         rtbDocumento.Size = New Size(800, 401)
         rtbDocumento.TabIndex = 4
         rtbDocumento.Text = ""
-        rtbDocumento.ZoomFactor = 2F
         ' 
         ' cmsTexto
         ' 
@@ -253,34 +249,35 @@ Partial Class frmBlocNotas
         stsEstado.Name = "stsEstado"
         stsEstado.Size = New Size(565, 17)
         stsEstado.Spring = True
-        stsEstado.Text = "stsEstado"
+        stsEstado.Text = "Listo"
         ' 
         ' stsPosicion
         ' 
         stsPosicion.Name = "stsPosicion"
         stsPosicion.Size = New Size(66, 17)
-        stsPosicion.Text = "stsPosicion"
+        stsPosicion.Text = "Línea: 1 Col: 1"
         ' 
         ' stsCaracteres
         ' 
         stsCaracteres.Name = "stsCaracteres"
         stsCaracteres.Size = New Size(76, 17)
-        stsCaracteres.Text = "stsCaracteres"
+        stsCaracteres.Text = "Caracteres: 0"
         ' 
         ' stsFechaHora
         ' 
         stsFechaHora.Name = "stsFechaHora"
         stsFechaHora.Size = New Size(78, 17)
-        stsFechaHora.Text = "stsFechaHora"
+        stsFechaHora.Text = "00/00/0000"
         ' 
         ' dlgAbrir
         ' 
-        dlgAbrir.FileName = "OpenFileDialog1"
+        dlgAbrir.FileName = ""
         dlgAbrir.Filter = "Archivos de texto (*.txt)|*.txt|Todos (*.*)|*.*"
         ' 
         ' dlgGuardar
         ' 
         dlgGuardar.DefaultExt = "txt"
+        dlgGuardar.Filter = "Archivos de texto (*.txt)|*.txt|Todos (*.*)|*.*"
         ' 
         ' dlgFuente
         ' 
@@ -297,24 +294,24 @@ Partial Class frmBlocNotas
         ' 
         ' frmBlocNotas
         ' 
-        AutoScaleDimensions = New SizeF(7F, 15F)
+        AutoScaleDimensions = New SizeF(7.0F, 15.0F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 450)
         Controls.Add(stsInferior)
         Controls.Add(rtbDocumento)
-        Controls.Add(tsbNuevo)
+        Controls.Add(tlsBarraHerramientas)
         Controls.Add(Label2)
         Controls.Add(Label1)
         Controls.Add(mnuPrincipal)
-        MainMenuStrip = mnuPrincipal
+        Me.MainMenuStrip = mnuPrincipal
         MinimumSize = New Size(600, 400)
         Name = "frmBlocNotas"
         StartPosition = FormStartPosition.CenterScreen
         Text = "Bloc de Notas VB.NET"
         mnuPrincipal.ResumeLayout(False)
         mnuPrincipal.PerformLayout()
-        tsbNuevo.ResumeLayout(False)
-        tsbNuevo.PerformLayout()
+        tlsBarraHerramientas.ResumeLayout(False)
+        tlsBarraHerramientas.PerformLayout()
         stsInferior.ResumeLayout(False)
         stsInferior.PerformLayout()
         ResumeLayout(False)
@@ -324,7 +321,8 @@ Partial Class frmBlocNotas
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents mnuPrincipal As MenuStrip
-    Friend WithEvents tsbNuevo As ToolStrip
+    Friend WithEvents tlsBarraHerramientas As ToolStrip
+    Friend WithEvents tsbNuevo As ToolStripButton
     Friend WithEvents rtbDocumento As RichTextBox
     Friend WithEvents cmsTexto As ContextMenuStrip
     Friend WithEvents stsInferior As StatusStrip

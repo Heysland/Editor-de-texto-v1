@@ -23,8 +23,8 @@ Public Class frmBlocNotas
         ' Llenar combos del ToolStrip
         tscbFuente.Items.AddRange(New String() {"Segoe UI", "Consolas", "Arial", "Times New Roman"})
         tscbFuente.SelectedIndex = 1
-        tscbTamaño.Items.AddRange(New String() {"8", "10", "11", "12", "14", "18", "24"})
-        tscbTamaño.SelectedIndex = 2
+        tscbTamano.Items.AddRange(New String() {"8", "10", "11", "12", "14", "18", "24"})
+        tscbTamano.SelectedIndex = 2
 
         ActualizarBarraEstado()
         Me.Text = "Bloc de Notas VB.NET - [Nuevo documento]"
@@ -94,7 +94,6 @@ Public Class frmBlocNotas
         GuardarDocumento(False)
     End Sub
 
-
     Private Sub tsbNegrita_Click(sender As Object, e As EventArgs) Handles tsbNegrita.Click
         AplicarEstiloFuente(FontStyle.Bold)
     End Sub
@@ -108,13 +107,20 @@ Public Class frmBlocNotas
     End Sub
 
     Private Sub tscbFuente_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tscbFuente.SelectedIndexChanged
-        Dim tamano As Single = rtbDocumento.SelectionFont.Size
-        rtbDocumento.SelectionFont = New Font(tscbFuente.Text, tamano, rtbDocumento.SelectionFont.Style)
+        If rtbDocumento Is Nothing OrElse String.IsNullOrEmpty(tscbFuente.Text) Then Exit Sub
+        Dim fuenteBase As Font = If(rtbDocumento.SelectionFont, rtbDocumento.Font)
+        If fuenteBase Is Nothing Then Exit Sub
+        rtbDocumento.SelectionFont = New Font(tscbFuente.Text, fuenteBase.Size, fuenteBase.Style)
     End Sub
 
-    Private Sub tscbTamano_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tscbTamaño.SelectedIndexChanged
-        Dim tam As Single = Convert.ToSingle(tscbTamaño.Text)
-        rtbDocumento.SelectionFont = New Font(rtbDocumento.SelectionFont.FontFamily, tam, rtbDocumento.SelectionFont.Style)
+    Private Sub tscbTamano_SelectedIndexChanged(sender As Object, e As EventArgs) Handles tscbTamano.SelectedIndexChanged
+        If rtbDocumento Is Nothing OrElse String.IsNullOrEmpty(tscbTamano.Text) Then Exit Sub
+        Dim tam As Single
+        If Single.TryParse(tscbTamano.Text, tam) Then
+            Dim fuenteBase As Font = If(rtbDocumento.SelectionFont, rtbDocumento.Font)
+            If fuenteBase Is Nothing Then Exit Sub
+            rtbDocumento.SelectionFont = New Font(fuenteBase.FontFamily, tam, fuenteBase.Style)
+        End If
     End Sub
 
     ' Combina o quita un estilo de fuente sobre el texto seleccionado
