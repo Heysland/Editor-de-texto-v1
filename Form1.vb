@@ -265,5 +265,31 @@ Public Class frmBlocNotas
         MessageBox.Show(mensaje, "Contar Caracteres", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
+    Private Function ConfirmarGuardarCambios() As Boolean
+        If documentoModificado Then
+            Dim resultado As DialogResult = MessageBox.Show(
+            "¿Desea guardar los cambios en el documento actual?",
+            "Guardar cambios",
+            MessageBoxButtons.YesNoCancel,
+            MessageBoxIcon.Question
+        )
+
+            If resultado = DialogResult.Yes Then
+                GuardarDocumento(False)
+                Return Not documentoModificado
+            ElseIf resultado = DialogResult.No Then
+                Return True
+            Else
+                Return False
+            End If
+        End If
+        Return True
+    End Function
+
+    Private Sub Form1_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If Not ConfirmarGuardarCambios() Then
+            e.Cancel = True
+        End If
+    End Sub
 
 End Class
