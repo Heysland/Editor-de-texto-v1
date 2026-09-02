@@ -15,12 +15,12 @@ Public Class frmBlocNotas
     End Sub
 
     Private Sub frmBlocNotas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Configuración inicial del RichTextBox
+
         rtbDocumento.Font = New Font("Consolas", 11)
         rtbDocumento.WordWrap = True
         mnuAjusteLinea.Checked = True
 
-        ' Llenar combos del ToolStrip
+
         tscbFuente.Items.AddRange(New String() {"Segoe UI", "Consolas", "Arial", "Times New Roman"})
         tscbFuente.SelectedIndex = 1
         tscbTamano.Items.AddRange(New String() {"8", "10", "11", "12", "14", "18", "24"})
@@ -126,7 +126,7 @@ Public Class frmBlocNotas
         End If
     End Sub
 
-    ' Combina o quita un estilo de fuente sobre el texto seleccionado
+
     Private Sub AplicarEstiloFuente(estilo As FontStyle)
         Dim fuenteActual As Font = rtbDocumento.SelectionFont
         If fuenteActual Is Nothing Then Exit Sub
